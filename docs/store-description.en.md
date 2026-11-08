@@ -7,7 +7,7 @@
 ## Summary
 
 ```
-Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFine: no more flickering picture and log spam.
+Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFine: the error no longer refreshes every frame and the log stays clean.
 ```
 
 ## Description
@@ -21,15 +21,14 @@ Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFin
 >
 > Tested with: **BSL v10 + OptiFine HD U E7 + FalseTweaks 4.4.5** — no more errors.
 
-Fixes the picture flicker and log spam caused by `GL error 0x0500: Invalid enum at pre-final` on
+Fixes the log spam caused by `GL error 0x0500: Invalid enum at pre-final` on
 Minecraft 1.7.10 + OptiFine clients.
 
 ## Symptom
 
 With OptiFine HD U E7 and a modern shaderpack (tested with BSL Classic v10), entering a world:
 
-- floods the log with `GL error 0x0500: Invalid enum at pre-final` (5216 lines in 40 seconds);
-- makes the picture visibly flicker and jitter.
+- floods the log with `GL error 0x0500: Invalid enum at pre-final` (5216 lines in 40 seconds).
 
 ## Cause
 
@@ -44,7 +43,7 @@ glFramebufferTexture2D(0 /* not GL_FRAMEBUFFER */, GL_COLOR_ATTACHMENT0, GL_TEXT
 ```
 
 which raises `GL_INVALID_ENUM`, so the final composite never reaches the screen framebuffer — that
-is the flicker. **Not shaderpack specific, not a driver problem.**
+is why the error repeats every frame. **Not shaderpack specific, not a driver problem.**
 
 ## Fix
 

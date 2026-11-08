@@ -14,8 +14,7 @@ GL error 0x0500: Invalid enum at pre-final
 
 在 OptiFine HD U E7 + 现代光影包（实测 BSL Classic v10）的 1.7.10 客户端里进入世界后：
 
-* 日志疯狂刷 `GL error 0x0500: Invalid enum at pre-final`（40 秒 5216 条）；
-* 画面明显闪烁抖动。
+* 日志疯狂刷 `GL error 0x0500: Invalid enum at pre-final`（40 秒 5216 条）。
 
 **根因**（用同步 GL 调试回调定位，详见 [docs/FINDINGS.md](docs/FINDINGS.md)）：
 OptiFine 自带一个 1.8 风格的 `GlStateManager` shim，它在静态初始化时从 `OpenGlHelper` 复制四个
@@ -95,7 +94,7 @@ gradlew.bat deployToInstance    # 若存在 E:/work/mc1710/mods 则拷进去，�
 |---|---|
 | `GL error 0x0500` 条数 | 40 秒 5216 条 → **0** |
 | `########## GL ERROR` banner | **0** |
-| 光影 program 编译 | 29 / 29，画面稳定不闪 |
+| 光影 program 编译 | 29 / 29 |
 
 ## 协议
 

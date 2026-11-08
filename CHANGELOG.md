@@ -10,7 +10,7 @@
   上下文存在之前完成静态初始化，四个 framebuffer 枚举（`GL_FRAMEBUFFER` / `GL_RENDERBUFFER` /
   `GL_COLOR_ATTACHMENT0` / `GL_DEPTH_ATTACHMENT`）全部停在 0，导致 `Shaders.renderFinal()` 每帧
   调用 `glFramebufferTexture2D(0, ...)` 触发 `GL_INVALID_ENUM`，final 合成无法贴到屏幕 framebuffer。
-* 画面闪烁抖动随之消失。
+* 该错误不再每帧刷新（实测 40 秒 5216 条 → 0）。
 
 **顺带处理（可单独关闭）**
 
@@ -40,7 +40,7 @@ First release.
   framebuffer enums before a GL context exists, so they stay 0 and `Shaders.renderFinal()` calls
   `glFramebufferTexture2D(0, ...)` every frame, raising `GL_INVALID_ENUM`; the final composite never
   reaches the screen framebuffer.
-* The resulting picture flicker is gone.
+* The error no longer refreshes every frame (5216 lines in 40 s -> 0).
 
 **Incidental, individually switchable**
 

@@ -72,7 +72,7 @@ static {
 | `GL_COLOR_ATTACHMENT0` | 36064 |
 | `GL_DEPTH_ATTACHMENT` | 36096 |
 
-实测结果：`GL error 0x0500` 计数 **5216 → 0**，闪烁消失。
+实测结果：`GL error 0x0500` 计数 **5216 → 0**。
 
 模组源码：
 - `E:\work\forge-1-7-10\src\main\java\com\example\forge1710\GLDebugProbe.java`（GL 调试回调 + 栈落盘）
@@ -132,5 +132,5 @@ drain 上限 128 次/调用，防死循环。
 | 聊天过滤自检 | 合成 `OpenGL 1283 error at pre-final` → `canceled=true`，计数 +1 |
 | drain 端到端自检 | 注入 `GL_INVALID_ENUM` → 记录 `first 1280 (GL_INVALID_ENUM) drained at gui-draw-post` |
 | banner 抑制 | 控制台 `########## GL ERROR` = **0** 行，`GL error 0x` = **0** 行 |
-| 渲染 | BSL 正常，无 0x0500，画面不闪 |
+| 渲染 | BSL 正常，无 0x0500 |
 

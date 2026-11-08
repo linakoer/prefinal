@@ -6,13 +6,13 @@
 ## 摘要 / Summary（一行，两个平台都用）
 
 ```
-修复 Minecraft 1.7.10 + OptiFine 的 "GL error 0x0500: Invalid enum at pre-final"：画面不再闪烁，日志不再刷屏。
+修复 Minecraft 1.7.10 + OptiFine 的 "GL error 0x0500: Invalid enum at pre-final"：该错误不再每帧刷新，日志不再被刷屏。
 ```
 
 英文摘要（投英文区时用）：
 
 ```
-Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFine: no more flickering picture and log spam.
+Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFine: the error no longer refreshes every frame and the log stays clean.
 ```
 
 ---
@@ -28,14 +28,13 @@ Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFin
 >
 > 已测试组合：**BSL v10 + OptiFine HD U E7 + FalseTweaks 4.4.5** —— 不再报错。
 
-修复 1.7.10 + OptiFine 客户端上 `GL error 0x0500: Invalid enum at pre-final` 造成的画面闪烁与日志刷屏。
+修复 1.7.10 + OptiFine 客户端上 `GL error 0x0500: Invalid enum at pre-final` 造成的日志持续刷屏（实测 40 秒 5216 条）。
 
 ## 现象
 
 装了 OptiFine HD U E7 和现代光影包（实测 BSL Classic v10）后进入世界：
 
-- 日志每帧刷 `GL error 0x0500: Invalid enum at pre-final`（实测 40 秒 5216 条）；
-- 画面明显闪烁抖动。
+- 日志每帧刷 `GL error 0x0500: Invalid enum at pre-final`（实测 40 秒 5216 条）。
 
 ## 原因
 
@@ -49,7 +48,7 @@ framebuffer 枚举。但 OptiFine 的 `Shaders` 类在 GL 上下文创建之前�
 glFramebufferTexture2D(0 /* 不是 GL_FRAMEBUFFER */, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, tex, 0);
 ```
 
-产生 `GL_INVALID_ENUM`，final 合成永远盖不到屏幕 framebuffer 上 —— 这就是闪烁的来源。
+产生 `GL_INVALID_ENUM`，final 合成永远盖不到屏幕 framebuffer 上 —— 这就是该错误每帧重复出现的原因。
 **与光影包无关，也不是显卡驱动问题。**
 
 ## 修复

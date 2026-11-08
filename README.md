@@ -7,8 +7,8 @@
 >
 > 已测试组合：**BSL v10 + OptiFine HD U E7 + FalseTweaks 4.4.5** —— 不再报错。
 
-修复 `GL error 0x0500: Invalid enum at pre-final` —— 让 **Minecraft 1.7.10 + OptiFine** 客户端
-不再闪烁、不再刷日志的那个着色器故障。
+修复 `GL error 0x0500: Invalid enum at pre-final` —— 针对 **Minecraft 1.7.10 + OptiFine** 客户端
+那个**每帧持续刷新**、把日志刷爆的着色器错误。
 
 * 项目 / 模组名：**PreFinal**（mod id `prefinal`）
 * 作者：**linakoer** · 版本 **1.0** · 协议 MIT
