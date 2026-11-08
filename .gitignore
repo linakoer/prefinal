@@ -32,3 +32,5 @@ tools/textmp/
 # Local-only side project and pack analysis notes (not part of the released mod)
 miscfix/
 docs/LOG-ISSUES.md
+
+dist/
