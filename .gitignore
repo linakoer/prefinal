@@ -1,0 +1,34 @@
+# Minecraft test instance and third-party binaries - never committed
+mc1710/
+/OptiFine_*.jar
+/BSLClassic_*.zip
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Gradle / build output
+.gradle/
+build/
+deploy/
+run/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Java
+*.class
+hs_err_pid*.log
+replay_pid*.log
+
+# local tools (git runtime, downloaded archives)
+tools/mingit/
+tools/*.zip
+tools/textmp/
+
+# logs and scratch
+*.log
+
+# Local-only side project and pack analysis notes (not part of the released mod)
+miscfix/
+docs/LOG-ISSUES.md

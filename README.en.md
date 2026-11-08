@@ -1,0 +1,49 @@
+# PreFinal
+
+> **Machine translation notice**
+> This English document is **machine-translated** from the Chinese original
+> ([README.md](README.md)) and is provided for convenience only. The Chinese version is
+> authoritative; if anything here is unclear or contradicts it, follow the Chinese text.
+
+Fixes `GL error 0x0500: Invalid enum at pre-final` — the shader breakage that makes a
+**Minecraft 1.7.10 + OptiFine** client flicker and spam its log.
+
+* Project / mod name: **PreFinal** (mod id `prefinal`)
+* Author: **linakoer** · version **1.0** · MIT licence
+* Target: Minecraft 1.7.10 + Forge 10.13.4.1614, client side
+
+Details and root-cause analysis: [prefinal/README.en.md](prefinal/README.en.md) ·
+[docs/FINDINGS.md](docs/FINDINGS.md)
+
+## Quick start
+
+```
+cd prefinal
+gradlew.bat build              # -> build/libs/prefinal-1.0.jar
+gradlew.bat deployToInstance   # copies into E:/work/mc1710/mods when present, else ./deploy
+```
+
+**JDK 8** is required (1.7.10 line: Gradle 7.4.2 + ForgeGradle 1.2 fork).
+
+## Switches
+
+Every component can be turned off independently in `config/prefinal.cfg`:
+
+| Switch | Effect |
+|---|---|
+| `fix.enableGlStateManagerFix` | the 0x0500 repair itself |
+| `errors.enableErrorSuppression` | drain GL errors so the banner / 1283 spam never prints |
+| `errors.enableChatFilter` | filter OpenGL noise out of the chat bar |
+| `errors.chatFilterPatterns` | custom regex list, empty = built-in set |
+| `debug.enableGlDebugProbe` | record real GL error call stacks |
+| `debug.selfTest` | inject one GL error to verify the suppression |
+
+## Publishing
+
+| Purpose | File |
+|---|---|
+| Changelog | [CHANGELOG.md](CHANGELOG.md) |
+| Store page text (Chinese, authoritative) | [docs/store-description.md](docs/store-description.md) |
+| Store page text (English, machine translation) | [docs/store-description.en.md](docs/store-description.en.md) |
+| Upload steps and field mapping | [docs/upload-checklist.md](docs/upload-checklist.md) |
+| Icons | `artworks/icon-512.png`, `artworks/icon-1024.png` |

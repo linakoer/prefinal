@@ -1,0 +1,11 @@
+[
+  {
+    "modid": "prefinal",
+    "name": "PreFinal",
+    "description": "Fixes the Minecraft 1.7.10 + OptiFine shader error 'GL error 0x0500: Invalid enum at pre-final' (flickering picture, GL_INVALID_ENUM every frame). Also keeps the GL log and chat free of the resulting error spam.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["linakoer"],
+    "logoFile": "logo.png"
+  }
+]

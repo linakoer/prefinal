@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net' }
+    }
+    dependencies {
+        // Official FG 1.2-SNAPSHOT no longer runs on a current Gradle and the
+        // official 1.7.10 MDK zip is gone (404). Use the anatawa12 fork from Maven Central.
+        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.1.+'
+    }
+}
+
+apply plugin: 'forge'
+
+version = "1.0"
+group = "com.linakoer.prefinal"
+archivesBaseName = "prefinal"
+
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "run"
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+// No external dependencies: this mod only touches Minecraft / Forge / OptiFine internals.
+// Misc fixes (e.g. the Waila/CompactMachines stub) live in the separate E:\work\miscfix project.
+
+processResources {
+    // Expand ${version} / ${mcversion} in mcmod.info (single source, no duplicate entries).
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    filesMatching('mcmod.info') {
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+}
+
+// Build and drop the reobf'd jar straight into the 1.7.10 test instance in the workspace.
+task deployToInstance(type: Copy, dependsOn: 'build') {
+    from('build/libs') {
+        include "${archivesBaseName}-${version}.jar"
+    }
+    into (new File('E:/work/mc1710/mods').isDirectory() ? file('E:/work/mc1710/mods') : file('deploy'))
+    doLast {
+        println "deployed ${archivesBaseName}-${version}.jar -> ${destinationDir}"
+    }
+}
+
