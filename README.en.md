@@ -58,3 +58,15 @@ Every component can be turned off independently in `config/prefinal.cfg`:
 | Store page text (English, machine translation) | [docs/store-description.en.md](docs/store-description.en.md) |
 | Upload steps and field mapping | [docs/upload-checklist.md](docs/upload-checklist.md) |
 | Icons | `artworks/icon-512.png`, `artworks/icon-1024.png` |
+
+## Out of scope (explicit)
+
+This mod **only** repairs GL error 0x0500: Invalid enum at pre-final caused by OptiFine's
+GlStateManager initialisation order, plus the log/chat spam it produces. Not fixed here:
+
+* **BSL Classic** on OptiFine: stretched/misplaced shadows and jitter - use the **non-Classic** BSL v10.
+* **Artifacts caused by the shaderpack itself** not matching OptiFine: misplaced geometry, flicker,
+  wrong shadows, shader compile failures.
+* **Third-party mod conflicts** such as Shader Fixer vs JourneyMap version mismatch crashing startup.
+
+**Rule of thumb: anything that goes away by switching the shaderpack or a mod version is out of scope.**

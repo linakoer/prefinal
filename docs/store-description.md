@@ -108,6 +108,19 @@ debug  { B:enableGlDebugProbe=false              # 调用栈诊断
 - 依赖 OptiFine 的类结构；其它 1.7.10 光影实现未经测试。
 - 只修 GL 状态初始化顺序这一处，光影包自身的其它告警（如 `DRAWBUFFERS` 越界）不在范围内。
 
+## 不修复的范围（明确声明）
+
+本模组**只**处理 OptiFine `GlStateManager` 初始化顺序导致的 `GL error 0x0500: Invalid enum at
+pre-final`，以及它带来的日志/聊天刷屏。下列问题**不在修复范围，也不会被修复**：
+
+* **BSL Classic 版**在 OptiFine 上出现的**阴影拉长/错位、画面抖动**（Classic 是按旧版 shadersmod
+  调参的，请改用**非 Classic 版** BSL v10）。
+* **任何由光影包自身**（版本、配置、内置选项）与 OptiFine 不匹配引起的异常：画面错位、闪烁、
+  阴影错误、着色器编译失败、选项解析告警等。
+* **第三方模组之间**的冲突，例如 Shader Fixer 与 JourneyMap 版本不匹配导致启动崩溃。
+
+**判断标准：凡是"换一个光影包 / 换一个模组版本就好"的问题，都不属于本模组职责。**
+
 ## 许可与致谢
 
 MIT 协议。不使用、不打包任何 OptiFine / 游戏 / 其它模组的代码或资源；只在你本地运行时修正

@@ -104,6 +104,21 @@ Environment: MC 1.7.10 + Forge 10.13.4.1614 + OptiFine HD U E7 + BSL Classic v10
 | `########## GL ERROR` banner |   0   |
 | Shader programs compiled | 29 / 29, picture stable |
 
+## Out of scope (explicit)
+
+This mod **only** repairs `GL error 0x0500: Invalid enum at pre-final` caused by OptiFine's
+`GlStateManager` initialisation order, plus the log/chat spam it produces. The following are **not
+fixed and will not be fixed** here - report them to the shaderpack or mod authors instead:
+
+* **BSL Classic** on OptiFine: **stretched/misplaced shadows and jitter**. Classic is tuned for old
+  shadersmod conventions and does not match OptiFine's pipeline; use the **non-Classic** BSL v10.
+* **Any artifact caused by the shaderpack itself** (version, settings, built-in options) not
+  matching OptiFine, e.g. misplaced geometry, flicker, wrong shadows, shader compile failures,
+  option parsing warnings.
+* **Third-party mod conflicts**, e.g. Shader Fixer vs JourneyMap version mismatch crashing startup.
+
+In short: **anything that goes away by switching the shaderpack or a mod version is out of scope.**
+
 ## Licence
 
 MIT — see [LICENSE](../LICENSE). Third-party interaction is documented in [NOTICE.md](../NOTICE.md);

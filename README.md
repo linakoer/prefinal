@@ -50,3 +50,14 @@ gradlew.bat deployToInstance   # 存在 E:/work/mc1710/mods 时拷进去，否�
 | 同上英文机翻 | [docs/store-description.en.md](docs/store-description.en.md) |
 | 上传步骤与字段对照 | [docs/upload-checklist.md](docs/upload-checklist.md) |
 | 图标 | `artworks/icon-512.png`、`artworks/icon-1024.png` |
+
+## 不修复的范围（明确声明）
+
+本模组**只**处理 OptiFine `GlStateManager` 初始化顺序导致的 `GL error 0x0500: Invalid enum at pre-final`
+以及它带来的日志/聊天刷屏。以下问题**不修**，请向对应光影包/模组作者反馈：
+
+* **BSL Classic 版**在 OptiFine 上的**阴影拉长/错位、画面抖动** —— 请改用**非 Classic 版** BSL v10。
+* **光影包自身**（版本/配置/内置选项）与 OptiFine 不匹配引发的异常：画面错位、闪烁、阴影错误、着色器编译失败等。
+* **第三方模组之间**的冲突（例如 Shader Fixer 与 JourneyMap 版本不匹配导致启动崩溃）。
+
+**判断标准：凡是"换一个光影包/换一个模组版本就好"的问题，都不属于本模组职责。**

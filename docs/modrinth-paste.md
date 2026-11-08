@@ -99,6 +99,19 @@ debug  { B:enableGlDebugProbe=false              # 调用栈诊断
 - 依赖 OptiFine 的类结构；其它 1.7.10 光影实现未经测试。
 - 只修 GL 状态初始化顺序这一处，光影包自身的其它告警（如 `DRAWBUFFERS` 越界）不在范围内。
 
+## 不修复的范围（明确声明）
+
+本模组**只**处理 OptiFine `GlStateManager` 初始化顺序导致的 `GL error 0x0500: Invalid enum at
+pre-final`，以及它带来的日志/聊天刷屏。下列问题**不在修复范围，也不会被修复**：
+
+* **BSL Classic 版**在 OptiFine 上出现的**阴影拉长/错位、画面抖动**（Classic 是按旧版 shadersmod
+  调参的，请改用**非 Classic 版** BSL v10）。
+* **任何由光影包自身**（版本、配置、内置选项）与 OptiFine 不匹配引起的异常：画面错位、闪烁、
+  阴影错误、着色器编译失败、选项解析告警等。
+* **第三方模组之间**的冲突，例如 Shader Fixer 与 JourneyMap 版本不匹配导致启动崩溃。
+
+**判断标准：凡是"换一个光影包 / 换一个模组版本就好"的问题，都不属于本模组职责。**
+
 ## 许可与致谢
 
 MIT 协议。不使用、不打包任何 OptiFine / 游戏 / 其它模组的代码或资源；只在你本地运行时修正
@@ -111,6 +124,8 @@ OptiFine 的四个静态字段。感谢 OptiFine 作者与光影作者们的长�
 ## English（以下为机器翻译 / machine translation，仅供参考，以中文为准）
 
 ## PreFinal (English · machine translation)
+
+# PreFinal
 
 > **Scope**
 > This mod **primarily fixes `GL error 0x0500: Invalid enum at pre-final`** produced by
@@ -181,6 +196,22 @@ MC 1.7.10 + Forge 10.13.4.1614 + OptiFine HD U E7 + BSL Classic v10 in a 73-mod 
 Client-side mod using the Forge event bus and reflection, no Mixin; verified to coexist with
 UniMixins, Shader Fixer and FalseTweaks. Relies on OptiFine's class layout; other 1.7.10 shader
 implementations are untested. Only the GL state initialisation order is repaired.
+
+## Out of scope (explicit)
+
+This mod **only** repairs `GL error 0x0500: Invalid enum at pre-final` caused by OptiFine's
+`GlStateManager` initialisation order, plus the log/chat spam it produces. The following are **not
+fixed and will not be fixed**:
+
+* **BSL Classic** on OptiFine: **stretched/misplaced shadows and jitter** (Classic is tuned for old
+  shadersmod conventions; use the **non-Classic** BSL v10).
+* **Any artifact coming from the shaderpack itself** (version, settings, built-in options) not
+  matching OptiFine: misplaced geometry, flicker, wrong shadows, shader compile failures, option
+  parsing warnings.
+* **Third-party mod conflicts**, e.g. Shader Fixer vs JourneyMap version mismatch crashing startup.
+
+**Rule of thumb: anything that goes away by switching the shaderpack or a mod version is out of
+scope.**
 
 ## Licence
 
