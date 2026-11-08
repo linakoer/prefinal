@@ -14,6 +14,13 @@ Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFin
 
 # PreFinal
 
+> **Scope**
+> This mod **primarily fixes `GL error 0x0500: Invalid enum at pre-final`** produced by
+> **current BSL shaders used with OptiFine**. Any other modern shaderpack for 1.7.10 OptiFine that
+> produces **the same error** can be repaired by it as well.
+>
+> Tested with: **BSL v10 + OptiFine HD U E7 + FalseTweaks 4.4.5** — no more errors.
+
 Fixes the picture flicker and log spam caused by `GL error 0x0500: Invalid enum at pre-final` on
 Minecraft 1.7.10 + OptiFine clients.
 

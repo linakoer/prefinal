@@ -21,6 +21,13 @@ Fixes "GL error 0x0500: Invalid enum at pre-final" on Minecraft 1.7.10 + OptiFin
 
 # PreFinal
 
+> **适用声明**
+> 本模组**主要修复最新版 BSL 光影在 OptiFine 上使用时**产生的
+> `GL error 0x0500: Invalid enum at pre-final` 错误。
+> 其他支持 1.7.10 OptiFine 的现代光影包，只要出现**同一个报错**，同样可以用本模组修复。
+>
+> 已测试组合：**BSL v10 + OptiFine HD U E7 + FalseTweaks 4.4.5** —— 不再报错。
+
 修复 1.7.10 + OptiFine 客户端上 `GL error 0x0500: Invalid enum at pre-final` 造成的画面闪烁与日志刷屏。
 
 ## 现象
